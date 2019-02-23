@@ -3,7 +3,7 @@ var el = x => document.getElementById(x);
 function showPicker(inputId) { el('file-input').click(); }
 
 function showPicked(input) {
-    el('upload-label').innerHTML = input.files[0].name;
+    // el('upload-label').innerHTML = input.files[0].name;
     var reader = new FileReader();
     reader.onload = function (e) {
         el('image-picked').src = e.target.result;
@@ -25,6 +25,7 @@ function analyze() {
         if (this.readyState === 4) {
             var response = JSON.parse(e.target.responseText);
             el('result-label').innerHTML = `Result = ${response['result']}`;
+            el('confidence-label').innerHTML = `Confidence = ${response['predictions'].max()}`;
         }
         el('analyze-button').innerHTML = 'Analyze';
     }

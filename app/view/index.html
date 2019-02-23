@@ -1,37 +1,73 @@
 <html lang='en'>
-    <head>
-        <meta charset='utf-8'>
-        <link rel='stylesheet' href='../static/style.css'>
-        <script src='../static/client.js'></script>
-    </head>
-    <body>
-        <div>
-            <div class='center'>
-                <div class='title'>DEMO YOUR ML MODEL</div>
-                <div class='content'>
-                    <div class='no-display'>
-                        <input id='file-input'
-                            class='no-display'
-                            type='file'
-                            name='file'
-                            accept='image/*'
-                            onchange='showPicked(this)'>
-                    </div>
-                    <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
-                    <div class='upload-label'>
-                        <label id='upload-label'>No file chosen</label>
-                    </div>
-                    <div>
-                        <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
-                    </div>
-                    <div class='analyze'>
-                        <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
-                    </div>
-                    <div class='result-label'>
-                        <label id='result-label'></label>
-                    </div>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <title>Is It Trump? Powered by artificial intelligence.</title>
+    <meta name="description"
+          content="A fun little AI that can recognize pictures of President Trump and other political figures.">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+
+    <link rel='stylesheet' href='../static/style.css'>
+    <script src='../static/client.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+
+    <meta property="og:url"
+          content="http://IsItTrump.com"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Is It Trump? Powered by artificial intelligence!"/>
+    <meta property="og:description"
+          content="Highly advanced artificial intellegence technology recognizes Trump!"/>
+    <meta property="og:image" content="../static/trump.png"/>
+
+
+</head>
+<body>
+<!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+<div>
+    <div class='center'>
+        <div class='title'>Is It Trump?</div>
+        <p class="sub-title">Upload a picture to find out! </p>
+        <div class='content'>
+            <div class='no-display'>
+                <input id='file-input'
+                       class='no-display'
+                       type='file'
+                       name='file'
+                       accept='image/*'
+                       onchange='showPicked(this)'>
+            </div>
+            <div>
+                <img id='image-picked' alt='Chosen Image' class="img-responsive trump-pic" src="../static/trump.png">
+            </div>
+            <div class="button-section">
+                <div class="upload">
+                    <button class='btn3d btn btn-default btn-lg choose-file-button' type='button' onclick='showPicker()'><span class="glyphicon glyphicon-download-alt"></span>Upload Picture</button>
+                </div>
+                <div class='analyze'>
+                    <button id='analyze-button' class='btn btn-magick btn-lg btn3d analyze-button' type='button' onclick='analyze()'><span class="glyphicon glyphicon-gift"></span> Analyze
+                    </button>
                 </div>
             </div>
+            <div class='result-label'>
+                <label id='result-label'></label>
+                <label id="confidence-label"></label>
+            </div>
+            <!-- Your share button code -->
+            <div class="fb-share-button"
+                 data-href="https://IsItTrump.com"
+                 data-layout="button_count">
+            </div>
         </div>
-    </body>
+    </div>
+</div>
+</body>
 </html>
