@@ -11,21 +11,21 @@ from fastai.vision import *
 model_file_url = 'https://www.dropbox.com/s/l6o5tp73n4uzujl/stage-2.pth?raw=1'
 model_file_name = 'model'
 classes = [
-    'Abraham_Lincoln',
-    'Adolf_Hitler',
-    'Barack_Obama',
-    'Condoleezza_Rice',
-    'Dick_Cheny',
-    'Donald_Trump',
-    'George_HW_Bush',
-    'George_W_Bush',
-    'Hillary_Clinton',
-    'Jimmy_Carter',
-    'John_F_Kennedy',
-    'Martin_Luther_King',
-    'Nancy_Pelosi',
-    'Richard_Nixon',
-    'Ronald_Regan'
+    'Abraham Lincoln',
+    'Adolf Hitler',
+    'Barack Obama',
+    'Condoleezza Rice',
+    'Dick Cheny',
+    'Donald Trump',
+    'George HW Bush',
+    'George W Bush',
+    'Hillary Clinton',
+    'Jimmy Carter',
+    'John F Kennedy',
+    'Martin Luther King',
+    'Nancy Pelosi',
+    'Richard Nixon',
+    'Ronald Regan'
 ]
 path = Path(__file__).parent
 
@@ -68,10 +68,12 @@ async def analyze(request):
     data = await request.form()
     img_bytes = await (data['file'].read())
     img = open_image(BytesIO(img_bytes))
+    confidence = (round(max((learn.predict(img)[2]).tolist()),2) * 100)
+    result = str(learn.predict(img)[0])
     return JSONResponse(
         {
-            'result': str(learn.predict(img)[0]),
-            'predictions': (learn.predict(img)[2]).tolist(),
+            'result': result,
+            'predictions': confidence,
         }
     )
 

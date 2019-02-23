@@ -2,7 +2,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-    <title>Is It Trump? Powered by artificial intelligence.</title>
+    <title>Is It Trump? Powered by AI</title>
     <meta name="description"
           content="A fun little AI that can recognize pictures of President Trump and other political figures.">
     <meta name=viewport content="width=device-width, initial-scale=1">
@@ -23,15 +23,15 @@
 </head>
 <body>
 <!-- Load Facebook SDK for JavaScript -->
-    <div id="fb-root"></div>
-    <script>(function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <div>
     <div class='center'>
         <div class='title'>Is It Trump?</div>
@@ -45,24 +45,28 @@
                        accept='image/*'
                        onchange='showPicked(this)'>
             </div>
-            <div>
-                <img id='image-picked' alt='Chosen Image' class="img-responsive trump-pic" src="../static/trump.png">
+            <div class="img-responsive trump-pic">
+                <img id='image-picked' alt='Chosen Image' src="../static/trump.png">
+            </div>
+            <div class='result-label'>
+                <label id='result-label'></label><br/>
+                <label style="margin-top: 20px;" id="confidence-label"></label>
             </div>
             <div class="button-section">
                 <div class="upload">
-                    <button class='btn3d btn btn-default btn-lg choose-file-button' type='button' onclick='showPicker()'><span class="glyphicon glyphicon-download-alt"></span>Upload Picture</button>
+                    <button class='btn3d btn btn-default btn-lg choose-file-button' type='button'
+                            onclick='showPicker()'><span class="glyphicon glyphicon-download-alt"></span>Upload Picture
+                    </button>
                 </div>
                 <div class='analyze'>
-                    <button id='analyze-button' class='btn btn-magick btn-lg btn3d analyze-button' type='button' onclick='analyze()'><span class="glyphicon glyphicon-gift"></span> Analyze
+                    <button id='analyze-button' class='btn btn-magick btn-lg btn3d analyze-button' type='button'
+                            onclick='analyze()'><span class="glyphicon glyphicon-gift"></span> Analyze
                     </button>
                 </div>
             </div>
-            <div class='result-label'>
-                <label id='result-label'></label>
-                <label id="confidence-label"></label>
-            </div>
+
             <!-- Your share button code -->
-            <div class="fb-share-button"
+            <div style="margin-top: 25px;" class="fb-share-button"
                  data-href="https://IsItTrump.com"
                  data-layout="button_count">
             </div>

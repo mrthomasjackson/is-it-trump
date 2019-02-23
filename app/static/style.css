@@ -65,13 +65,19 @@ button:focus {outline:0;}
     color: #ff8100;
 }
 
+.result-label {
+    font-family: 'Bangers', cursive;
+	font-size: 1.75em;
+	color: #ff8100;
+}
+
 .sub-title {
     font-family: 'Bangers', cursive;
     font-size: 2em;
     color: #ff8100;
 }
 
-.trump-pic {
+.trump-pic img {
     margin: 0 auto;
     display: block;
     clear: both;
@@ -80,7 +86,7 @@ button:focus {outline:0;}
 }
 
 .button-section {
-    margin-top: 5em;
+    margin-top: 3em;
 }
 
 .button-section > div {
