@@ -8,7 +8,7 @@ from io import BytesIO
 from fastai import *
 from fastai.vision import *
 
-model_file_url = 'https://www.dropbox.com/s/l6o5tp73n4uzujl/stage-2.pth?raw=1'
+model_file_url = 'https://www.dropbox.com/s/l6o5tp73n4uzujl/stage-2.pth?dl=1'
 model_file_name = 'model'
 classes = [
     'Abraham Lincoln',
